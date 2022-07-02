@@ -1,0 +1,120 @@
+.container {
+	max-width: 450px;
+	width: 100%;
+	position: relative;
+    margin: 30rem auto;
+    
+}
+.form {
+	width: 100%;
+	padding: 28px;
+	border-radius: 12px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) scale(.8);
+	opacity: 0;
+	z-index: 100;
+	transition: all .3s ease;
+	transition-delay: 0s;
+    background-color: #5b6570;
+}
+.form.active {
+	transform: translateY(-50%);
+	opacity: 1;
+	z-index: 200;
+	transition-delay: .3s;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.form__group {
+	margin-bottom: 10px;
+}
+.form__group label {
+	display: inline-block;
+	margin-bottom: 8px;
+}
+.input__group {
+	width: 100%;
+	position: relative;
+}
+.input__group input {
+	padding: 12px 40px 12px 20px;
+	outline: none;
+	border-radius: 6px;
+	border: 1px solid #B7B7B7;
+	width: 100%;
+	transition: all .3s ease;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+/* Validation */
+.input__group input:focus,
+.input__group input:not(:placeholder-shown) {
+	border-color: #f1b881;
+	background: #F4F2FF;
+}
+.input__group input:focus + i,
+.input__group input:not(:placeholder-shown) + i {
+	color: #f1b881;
+}
+.input__group input:focus:valid {
+	box-shadow: 0 0 0 4px #BDFFAC;
+}
+.input__group input:valid:not(:placeholder-shown) {
+	border-color: #23AE00;
+}
+.input__group input:valid:not(:placeholder-shown) + i {
+	color: #23AE00;
+}
+.input__group input:invalid:not(:placeholder-shown) {
+	border-color: #FE2727;
+}
+.input__group input:invalid:not(:placeholder-shown) + i {
+	color: #FE2727;
+}
+.input__group input:focus:invalid {
+	box-shadow: 0 0 0 4px #FFD2D2;
+}
+.input__group input:focus,
+.input__group input:focus:placeholder-shown {
+	box-shadow: 0 0 0 4px #f1b881;
+}
+/* Validation */
+
+.input__group i {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 20px;
+	color: #9B9B9B;
+	pointer-events: none;
+	transition: all .3s ease;
+}
+.form__group .help__text {
+	font-size: 13px;
+	color: #fff;
+}
+.btn__login {
+	font-size: 16px;
+    margin: 0 10px;
+}
+
+.btn__group {
+    display:flex;
+    justify-content: center;
+    
+}
+
+.error {
+	margin-top: 10px;
+	font-size: 20px;
+	text-align: center;
+	font-weight: 400;
+	color:#f84545;
+}
+

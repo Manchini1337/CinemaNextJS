@@ -1,0 +1,13 @@
+.redirect {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	text-align: center;
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgba(91, 101, 112, 0.7);
+    z-index: 10;
+    border-radius: 30px;
+    padding: 10px;
+}

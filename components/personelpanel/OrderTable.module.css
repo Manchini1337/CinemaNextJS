@@ -1,0 +1,25 @@
+
+.order__button {
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    margin: 10px 0 10px;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .order__button:hover {
+    color: #f1b881;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .input {
+    border: 3px solid #fff;
+    border-radius: 30px;
+    padding: 0.5rem 1.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 10px auto 10px;
+    display: block;
+  }
+

@@ -1,0 +1,80 @@
+.heroslide {
+    margin-bottom: 3rem;
+}
+.heroslide__item {
+    padding: 9rem 0;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.heroslide__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.heroslide__item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to top, #404b59, rgba(0, 0, 0, 0));
+}
+.heroslide__item__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.heroslide__item__content__info {
+    width: 55%;
+    padding: 0 3rem;
+    position: relative;
+}
+.heroslide__item__content__info > * ~ * {
+    margin-top: 3rem;
+}
+.heroslide__item__content__info .title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.heroslide__item__content__info .overview {
+    font-weight: 700;
+}
+.heroslide__item__content__info .btns > * ~ * {
+    margin-left: 1rem;
+}
+.heroslide__item__content__info .btns, .heroslide__item__content__info .title, .heroslide__item__content__info .overview {
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.heroslide__item__content__poster {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+.heroslide__item__content__poster img {
+    width: 400px;
+    border-radius: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: scale(0);
+    transition: transform 0.7s ease;
+}
+.heroslide__item.active > .heroslide__item__content > .heroslide__item__content__poster img {
+    transform: scale(1);
+}
+.heroslide__item.active > .heroslide__item__content > .heroslide__item__content__info .btns, .heroslide__item.active > .heroslide__item__content > .heroslide__item__content__info .title, .heroslide__item.active > .heroslide__item__content > .heroslide__item__content__info .overview {
+    opacity: 1;
+    transform: translateY(0);
+}
