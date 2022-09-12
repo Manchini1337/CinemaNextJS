@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
 import { capitalizeFirstLetter } from '../../utils/helpers/helpers';
-import Paypal from '../paypal/paypal';
+// import Paypal from '../paypal/paypal';
 import { useDispatch } from 'react-redux';
 import { orderActions } from '../../store/orderslice';
 import Redirect from '../redirect/redirect';
@@ -18,8 +18,8 @@ const OrderForm = (props) => {
   const user = useSelector((state) => state.user);
   const order = useSelector((state) => state.order);
 
-  const [renderPaypalButton, setRenderPaypalButton] = useState(false);
-  const [normalButton, setNormalButton] = useState(true);
+  // const [renderPaypalButton, setRenderPaypalButton] = useState(false);
+  // const [normalButton, setNormalButton] = useState(true);
   const [orderSent, setOrderSent] = useState(false);
   const [price, setPrice] = useState(order.selectedSeats.length * 20);
   const [event, setEvent] = useState({
@@ -52,11 +52,7 @@ const OrderForm = (props) => {
         console.log(error);
       }
     })();
-  }, []);
-
-  if (!order.eventId) {
-    return <Redirect path='/'>Brak danych o zamówieniu.</Redirect>;
-  }
+  }, [order.eventId]);
 
   useEffect(() => {
     formRef.current.classList.add(`${classes.active}`);
@@ -82,9 +78,18 @@ const OrderForm = (props) => {
 
   useEffect(() => {
     props.setBackground(event.movie.background);
-  }, [event]);
+  }, [event, props]);
 
-  const sendOrder = async () => {
+  if (orderSent) {
+    return <Redirect path={'/'}>Pomyślnie złożono zamówienie.</Redirect>;
+  }
+
+  if (!order.eventId) {
+    return <Redirect path='/'>Brak danych o zamówieniu.</Redirect>;
+  }
+
+  const sendOrder = async (e) => {
+    e.preventDefault();
     try {
       const response = await api.post('/orders', {
         firstName: details.firstName,
@@ -104,14 +109,10 @@ const OrderForm = (props) => {
     }
   };
 
-  const renderPaypal = () => {
-    setNormalButton(false);
-    setRenderPaypalButton(true);
-  };
-
-  if (orderSent) {
-    return <Redirect path={'/'}>Pomyślnie złożono zamówienie.</Redirect>;
-  }
+  // const renderPaypal = () => {
+  //   setNormalButton(false);
+  //   setRenderPaypalButton(true);
+  // };
 
   return (
     <div className={classes.container}>
@@ -139,7 +140,7 @@ const OrderForm = (props) => {
         <p>{price.toString()} zł</p>
       </div>
       <div>
-        <form className={classes.form} ref={formRef}>
+        <form className={classes.form} ref={formRef} onSubmit={sendOrder}>
           <div className={classes.form__group}>
             <label htmlFor='firstname'>Imię:</label>
             <div className={classes.input__group}>
@@ -211,13 +212,13 @@ const OrderForm = (props) => {
               <i className='bx bx-envelope' />
             </div>
           </div>
-          <OutlineButton className={classes.form__button} onClick={sendOrder}>
+          <OutlineButton className={classes.form__button} type='submit'>
             Zarezerwuj
           </OutlineButton>
-          <p style={{ textAlign: 'center' }}>Albo:</p>
+          {/* <p style={{ textAlign: 'center' }}>Albo:</p> */}
         </form>
       </div>
-      <div className={classes.paypal}>
+      {/* <div className={classes.paypal}>
         <Paypal
           price={price}
           user={user}
@@ -234,7 +235,7 @@ const OrderForm = (props) => {
             Zapłać z paypal
           </OutlineButton>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

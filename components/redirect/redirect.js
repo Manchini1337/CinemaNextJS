@@ -9,7 +9,7 @@ const Redirect = (props) => {
     setTimeout(function () {
       router.replace(path);
     }, 1000);
-  }, []);
+  }, [path, router]);
   return (
     <div className={classes.redirect}>
       <p>{props.children}</p>

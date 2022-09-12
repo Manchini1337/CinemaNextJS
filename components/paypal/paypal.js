@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { orderActions } from '../../store/orderslice';
@@ -32,9 +32,9 @@ export default function Paypal({
       eventId: order.eventId,
       seatId: order.selectedSeats,
     });
-  }, [orderDetails]);
+  }, [orderDetails, order.eventId, order.selectedSeats]);
 
-  const sendOrder = async () => {
+  const sendOrder = useCallback(async () => {
     try {
       const response = await fetch('http://localhost:8080/orders', {
         method: 'POST',
@@ -46,6 +46,7 @@ export default function Paypal({
           userId: user.id ? user.id : null,
           eventId: order.eventId,
           seatId: order.selectedSeats,
+          isPaid: true,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +62,18 @@ export default function Paypal({
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [
+    details.email,
+    details.firstName,
+    details.lastName,
+    details.phoneNumber,
+    dispatch,
+    order.eventId,
+    order.selectedSeats,
+    router,
+    setOrderSent,
+    user.id,
+  ]);
 
   useEffect(() => {
     renderPaypalButton &&
@@ -90,7 +102,7 @@ export default function Paypal({
           },
         })
         .render(paypal.current);
-  }, [renderPaypalButton]);
+  }, [renderPaypalButton, newPrice, sendOrder]);
 
   return (
     <div>

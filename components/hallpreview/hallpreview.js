@@ -1,4 +1,5 @@
 import classes from './HallPreview.module.css';
+import Image from 'next/image';
 import MovieBackground from '../moviebackground/moviebackground';
 import { format } from 'date-fns';
 import { pl } from 'date-fns/locale';
@@ -20,7 +21,7 @@ const HallPreview = (props) => {
 
   useEffect(() => {
     setSeats(event.seats);
-  }, []);
+  }, [event.seats]);
 
   const handleSeatClick = (seat) => {
     if (seat.isAvailable) {
@@ -59,6 +60,12 @@ const HallPreview = (props) => {
       <MovieBackground background={event.movie.background} />
       <div className={classes.container}>
         <div className={classes.poster}>
+          {/* <Image
+            src={event.movie.poster}
+            width='260px'
+            height='390px'
+            className={classes.posterImg}
+          /> */}
           <img src={event.movie.poster} alt='poster' />
         </div>
         <div className={classes.screening}>

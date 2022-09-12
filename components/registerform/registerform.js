@@ -5,12 +5,6 @@ import Redirect from '../redirect/redirect';
 import api from '../../utils/api/axios.interceptor';
 
 const RegisterForm = () => {
-  const formRef = useRef(null);
-
-  const [isRedirecting, setIsRedirecting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [formData, setFormData] = useState(emptyForm);
-
   const emptyForm = {
     firstName: '',
     lastName: '',
@@ -19,6 +13,11 @@ const RegisterForm = () => {
     username: '',
     password: '',
   };
+  const formRef = useRef(null);
+
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState(emptyForm);
 
   useEffect(() => {
     formRef.current.classList.add(`${classes.active}`);

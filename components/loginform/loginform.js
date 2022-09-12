@@ -36,7 +36,8 @@ const LoginForm = () => {
         setLoggedIn(true);
       }
     } catch (error) {
-      setDisclaimer(error.response.data);
+      setDisclaimer(error.response.data.message);
+      console.log(error.response.data);
       setFormData({
         username: '',
         password: '',

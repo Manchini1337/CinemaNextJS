@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
         dispatch(userActions.setUserData(response.data));
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <MainHeader />
