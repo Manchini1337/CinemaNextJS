@@ -32,13 +32,19 @@ Some functionalities are not available to you due to security concerns. I simply
 Application supports incoming payments thanks to PayPal sandbox API:
 
 <p align="center">
-<img src="https://i.imgur.com/4CvcFyQ.png">
+<img src="https://i.imgur.com/4CvcFyQ.png" width="300">
+</p>
 
-<img src="https://i.imgur.com/YUloGqE.png">
+<p align="center">
+<img src="https://i.imgur.com/YUloGqE.png" width="300">
+</p>
 
-<img src="https://i.imgur.com/kc2c872.png">
+<p align="center">
+<img src="https://i.imgur.com/kc2c872.png" width="300">
+</p>
 
-<img src="https://i.imgur.com/pUVYa5C.png">
+<p align="center">
+<img src="https://i.imgur.com/pUVYa5C.png" width="300">
 </p>
 
 ### Admin and employee panel
