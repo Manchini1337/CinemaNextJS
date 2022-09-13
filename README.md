@@ -11,6 +11,8 @@ The client part provides a web application that allows the user to browse the of
 ## General info
 This repository contains information about front-end part of the application. You can view the back-end [here.](https://github.com/Manchini1337/CinemaBackend)
 
+Original front-end version can be found [here.](https://github.com/Manchini1337/CinemaFrontend) The app has been refactored a few months after I have finished university. 
+
 The application has been deployed, however, it takes advantage of free hosting services such as heroku. Please keep that in mind, because that might have impact on loading times or server/db responses. 
 
 The Heroku app can take a minute to load if it has been inactive for a long time.
