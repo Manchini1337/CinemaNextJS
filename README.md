@@ -1,34 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# BSC Thesis App
 
-First, run the development server:
+## Abstract
+The goal of this thesis is to design and develop a web application that will support the work of a studio cinema. The system is divided into two parts, server and client.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The server part is responsible for storing and processing data and requests coming from the client part. It uses client-server architecture and the following technologies: Node.js, Express, Sequalize and MariaDB.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The client part provides a web application that allows the user to browse the offer of the cinema, register a user account and buy tickets. Employees are provided with necessary tools to manage repertoire and incoming orders.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## General info
+This repository contains information about front-end part of the application. You can view the back-end [here.](https://github.com/Manchini1337/CinemaBackend)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+The application has been deployed, however, it takes advantage of free hosting services such as heroku. Please keep that in mind, because that might have impact on loading times or server/db responses. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The Heroku app can take a minute to load if it has been inactive for a long time.
 
-## Learn More
+## Demo
 
-To learn more about Next.js, take a look at the following resources:
+You can test the app [here.](https://cinemanextjsfrontend.herokuapp.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Main functionalities 
+- Create and manage an user account (not mandatory for ticket booking)
+- Book tickets for movie screening
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Remaining functionalities
 
-## Deploy on Vercel
+Some functionalities are not available to you due to security concerns. I simply do not want to have my database flooded, so I will briefly describe them below.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### PayPal payments
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Application supports incoming payments thanks to PayPal sandbox API:
+
+<p align="center">
+<img src="https://i.imgur.com/4CvcFyQ.png" width="300">
+
+<img src="https://i.imgur.com/YUloGqE.png" width="300">
+
+<img src="https://i.imgur.com/kc2c872.png" width="300">
+
+<img src="https://i.imgur.com/pUVYa5C.png" width="300">
+</p>
+
+### Admin and employee panel
+
+Authorized users are provided various tools that help to manage the cinema.
+
+- Admin form to grant and revoke permissions to the user accounts
+- Employee form to manage incoming orders
+- Employee form to add movies to the database
+- Employee form to create movie screenings based on available movies
+
+<p align="center">
+<img src="https://i.imgur.com/Q9xpfc2.png" >
+
+<img src="https://i.imgur.com/X8khyBo.png">
+
+<img src="https://i.imgur.com/KqffWym.png">
+
+<img src="https://i.imgur.com/81nIe82.png">
+</p>
