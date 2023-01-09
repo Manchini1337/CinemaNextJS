@@ -1,3 +1,8 @@
+## Database temporarily down
+
+The free database hosting service seems to be down, so app does not work properly right now.
+I'm currently looking for a solution, but in the meantime app is out of service. 
+Sorry for inconvenience.
 
 # BSC Thesis App
 
